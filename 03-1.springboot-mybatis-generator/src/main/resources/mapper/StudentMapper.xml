@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.joe.springboot.mybatis.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="student">
+    <result column="sno" jdbcType="VARCHAR" property="sno" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+  </resultMap>
+  <insert id="insert" parameterType="student">
+    insert into student (sno, name, gender
+      )
+    values (#{sno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sno != null">
+        sno,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sno != null">
+        #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="add">
+    INSERT INTO student(sno, name, gender)
+    VALUES (#{sno}, #{name}, #{gender})
+  </insert>
+
+  <update id="update">
+    UPDATE student
+    SET name = #{name}, gender = #{gender}
+    WHERE sno = #{sno}
+  </update>
+
+  <delete id="deleteBysno">
+    DELETE FROM student
+    WHERE sno = #{sno}
+  </delete>
+
+  <select id="queryStudentBySno" resultType="student">
+    SELECT *
+    FROM student s
+    WHERE s.sno = #{sno}
+  </select>
+</mapper>
