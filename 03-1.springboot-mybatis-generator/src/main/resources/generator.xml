@@ -21,7 +21,7 @@
         </javaTypeResolver>
 
         <!-- 生成entity -->
-        <javaModelGenerator targetPackage="cc.joe.springboot.mybatis.entity"
+        <javaModelGenerator targetPackage="cc.joe.springboot.aspect.entity"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
@@ -35,7 +35,7 @@
 
         <!-- mapper文件-->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="cc.joe.springboot.mybatis.mapper"
+                             targetPackage="cc.joe.springboot.aspect.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>

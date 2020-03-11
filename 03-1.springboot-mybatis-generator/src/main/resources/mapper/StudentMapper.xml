@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cc.joe.springboot.mybatis.mapper.StudentMapper">
+<mapper namespace="cc.joe.springboot.aspect.mapper.StudentMapper">
   <resultMap id="BaseResultMap" type="student">
     <result column="sno" jdbcType="VARCHAR" property="sno" />
     <result column="name" jdbcType="VARCHAR" property="name" />
