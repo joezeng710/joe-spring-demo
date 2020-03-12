@@ -4,66 +4,66 @@ server:
 spring:
   datasource:
     druid:
-      ## æ•°æ®æºé…ç½®
+      ## Êı¾İÔ´ÅäÖÃ
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true
       username: spring
       password: 123456
-      # è¿æ¥æ± é…ç½®
+      # Á¬½Ó³ØÅäÖÃ
       initial-size: 5
       min-idle: 5
       max-active: 20
-      # è¿æ¥ç­‰å¾…è¶…æ—¶æ—¶é—´
+      # Á¬½ÓµÈ´ı³¬Ê±Ê±¼ä
       max-wait: 30000
-      # é…ç½®æ£€æµ‹å¯ä»¥å…³é—­çš„ç©ºé—²è¿æ¥é—´éš”æ—¶é—´
+      # ÅäÖÃ¼ì²â¿ÉÒÔ¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó¼ä¸ôÊ±¼ä
       time-between-eviction-runs-millis: 60000
-      # é…ç½®è¿æ¥åœ¨æ± ä¸­çš„æœ€å°ç”Ÿå­˜æ—¶é—´
+      # ÅäÖÃÁ¬½ÓÔÚ³ØÖĞµÄ×îĞ¡Éú´æÊ±¼ä
       min-evictable-idle-time-millis: 300000
       validation-query: select '1' from dual
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
-      # æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å°
+      # ´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡
       pool-prepared-statements: true
       max-open-prepared-statements: 20
       max-pool-prepared-statement-per-connection-size: 20
-      # é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filters, å»æ‰åç›‘æ§ç•Œé¢sqlæ— æ³•ç»Ÿè®¡, 'wall'ç”¨äºé˜²ç«å¢™
+      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters, È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ, 'wall'ÓÃÓÚ·À»ğÇ½
       filters: stat,wall
-      # Springç›‘æ§AOPåˆ‡å…¥ç‚¹ï¼Œå¦‚x.y.z.service.*,é…ç½®å¤šä¸ªè‹±æ–‡é€—å·åˆ†éš”
+      # Spring¼à¿ØAOPÇĞÈëµã£¬Èçx.y.z.service.*,ÅäÖÃ¶à¸öÓ¢ÎÄ¶ººÅ·Ö¸ô
       aop-patterns: com.springboot.servie.*
 
 
-      # WebStatFilteré…ç½®
+      # WebStatFilterÅäÖÃ
       web-stat-filter:
         enabled: true
-        # æ·»åŠ è¿‡æ»¤è§„åˆ™
+        # Ìí¼Ó¹ıÂË¹æÔò
         url-pattern: /*
-        # å¿½ç•¥è¿‡æ»¤çš„æ ¼å¼
+        # ºöÂÔ¹ıÂËµÄ¸ñÊ½
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
-      # StatViewServleté…ç½®
+      # StatViewServletÅäÖÃ
       stat-view-servlet:
         enabled: true
-        # è®¿é—®è·¯å¾„ä¸º/druidæ—¶ï¼Œè·³è½¬åˆ°StatViewServlet
+        # ·ÃÎÊÂ·¾¶Îª/druidÊ±£¬Ìø×ªµ½StatViewServlet
         url-pattern: /druid/*
-        # æ˜¯å¦èƒ½å¤Ÿé‡ç½®æ•°æ®
+        # ÊÇ·ñÄÜ¹»ÖØÖÃÊı¾İ
         reset-enable: false
-        # éœ€è¦è´¦å·å¯†ç æ‰èƒ½è®¿é—®æ§åˆ¶å°
+        # ĞèÒªÕËºÅÃÜÂë²ÅÄÜ·ÃÎÊ¿ØÖÆÌ¨
         login-username: druid
         login-password: druid123
-        # IPç™½åå•
+        # IP°×Ãûµ¥
         # allow: 127.0.0.1
-        #ã€€IPé»‘åå•ï¼ˆå…±åŒå­˜åœ¨æ—¶ï¼Œdenyä¼˜å…ˆäºallowï¼‰
+        #¡¡IPºÚÃûµ¥£¨¹²Í¬´æÔÚÊ±£¬denyÓÅÏÈÓÚallow£©
         # deny: 192.168.1.218
-      # é…ç½®StatFilter
+      # ÅäÖÃStatFilter
       filter:
         stat:
           log-slow-sql: true
 
-#mybatis é…ç½®
+#mybatis ÅäÖÃ
 mybatis:
-  typeAliasesPackage: cc.joe.springboot.aspect.entity
+  typeAliasesPackage: cc.joe.springboot.redis.entity
   mapperLocations: classpath:mapper/*.xml
   property:
     order: BEFORE
@@ -72,5 +72,6 @@ logging:
     cc:
       joe:
         springboot:
-          aspect:
+          redis:
             mapper: debug
+
