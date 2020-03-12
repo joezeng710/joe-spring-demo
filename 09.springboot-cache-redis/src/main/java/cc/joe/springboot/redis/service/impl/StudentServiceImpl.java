@@ -17,8 +17,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public int update(Student student) {
-        return studentMapper.update(student);
+    public Student update(Student student) {
+        this.studentMapper.update(student);
+        return this.studentMapper.queryStudentBySno(student.getSno());
     }
 
     @Override
